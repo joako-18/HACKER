@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  font-family: 'Space Mono', monospace;
+  overflow: hidden;
+}
+
+.hacker-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #000;
+}
+
+.content-wrapper {
+  z-index: 10;
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.terminal {
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 1px solid #00FF00;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.4), inset 0 0 20px rgba(0, 255, 0, 0.1);
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  position: relative;
+}
+
+.terminal-header {
+  background-color: #111;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+
+.button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.button.red { background-color: #ff5f56; }
+.button.yellow { background-color: #ffbd2e; }
+.button.green { background-color: #27c93f; }
+
+.title {
+  color: #aaa;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.terminal-body {
+  padding: 30px;
+  min-height: 250px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .terminal-body {
+    padding: 20px;
+    font-size: 1rem;
+    min-height: 200px;
+  }
+  
+  .content-wrapper {
+    padding: 10px;
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .terminal-body {
+    font-size: 0.9rem;
+    padding: 15px;
+    min-height: 150px;
+  }
+}
+
+/* Scanline effect */
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.2)
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0.5;
+}
